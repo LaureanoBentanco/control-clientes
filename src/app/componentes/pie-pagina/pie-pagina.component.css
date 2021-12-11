@@ -1,0 +1,8 @@
+.aling{
+  display: flex;
+}
+a{
+  margin: auto;
+  display: inline-flex;
+  padding: 10px;
+}
