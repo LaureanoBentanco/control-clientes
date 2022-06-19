@@ -35,7 +35,7 @@ export class ClientesComponent implements OnInit {
   }
 
   getSaldoTotal(){
-    let saldototal:number  = 0;
+    let saldototal:number = 0;
     if(this.Clientes){
       this.Clientes.forEach(
         cliente =>{
