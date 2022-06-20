@@ -25,6 +25,7 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
 import { ClientesServicio } from './servicios/cliente.services';
 import { AuthGuard } from './guardianes/auth.guard';
 import { ConfiguracionServicio } from './servicios/configuracion.service';
+import { ConfiguaracionGuard } from './guardianes/configuracion.guard';
 
 
 
@@ -54,7 +55,8 @@ import { ConfiguracionServicio } from './servicios/configuracion.service';
   providers: [ClientesServicio,
               LoginService,
               AuthGuard,
-              ConfiguracionServicio,
+              ConfiguaracionGuard,
+              ConfiguracionServicio
           ],
 
   bootstrap: [AppComponent]
