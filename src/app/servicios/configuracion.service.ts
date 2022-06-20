@@ -1,27 +1,27 @@
-import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/compat/firestore';
-import { Configuracion } from '../modelo/configuracion.model';
-import { Observable } from 'rxjs';
-import { inject, Injectable } from '@angular/core';
+
+import { Injectable } from "@angular/core";
+import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
+import { Observable } from "rxjs";
+import { Configuracion } from "../modelo/configuracion.model";
 
 @Injectable()
+export class ConfiguracionServicio {
+    configuracionDoc: AngularFirestoreDocument<Configuracion>;
+    configuracion: Observable<Configuracion>;
 
-export class  ConfiguracionServicio{
-  configuracionDoc: AngularFirestoreDocument<Configuracion>;
-  configuracion: Observable<any>;
-  id = "1";
+    //id unico de la coleccion de la configuracion
+    id = '1';
 
-  constructor(
-    private db: AngularFirestore){}
+    constructor(private db: AngularFirestore) { }
 
-    getConfiguracion(): Observable <Configuracion>{
-      this.configuracionDoc = this.db.doc<Configuracion>(`configuracion/${this.id}`);
-      this.configuracion = this.configuracionDoc.valueChanges();
-      return this.configuracion;
-    }
-    modificarConfiguaracion(configuracion: any){
-      this.configuracionDoc = this.db.doc<Configuracion>(`configuracion/${this.id}`);
-      this.configuracionDoc.update(configuracion);
-
+    getConfiguracion(): Observable<Configuracion> {
+        this.configuracionDoc = this.db.doc<Configuracion>(`configuracion/${this.id}`);
+        this.configuracion = this.configuracionDoc.valueChanges() as Observable<Configuracion>;
+        return this.configuracion;
     }
 
-  }
+    modificarConfiguracion(configuracion: Configuracion) {
+        this.configuracionDoc = this.db.doc<Configuracion>(`configuracion/${this.id}`);
+        this.configuracionDoc.update(configuracion);
+    }
+}

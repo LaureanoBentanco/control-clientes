@@ -1,3 +1,4 @@
 export interface Configuracion{
-  premitirRegistro?: boolean;
+  permitirRegistro: boolean;
+
 }
